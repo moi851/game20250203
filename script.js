@@ -191,8 +191,12 @@ function drawGame() {
 
 // 게임 루프 함수
 function gameLoop() {
+    // 게임이 진행 중이면 게임 시작 버튼 숨김, 아니면 표시
     if (gameState === "play") {
+        if (startButton) { startButton.style.display = "none"; }
         updateGame();
+    } else {
+        if (startButton) { startButton.style.display = "block"; }
     }
     drawGame();
     requestAnimationFrame(gameLoop);
@@ -263,6 +267,16 @@ function addTouchEvents(id, keyCode) {
             keys[keyCode] = false;
         }, false);
     }
+}
+
+// 게임 시작 버튼 이벤트 처리
+var startButton = document.getElementById("btnStart");
+if (startButton) {
+    startButton.addEventListener("click", function(e) {
+        if (gameState === "start" || gameState === "gameover") {
+            initGame();
+        }
+    }, false);
 }
 
 // 각 버튼에 대해 터치 이벤트 등록

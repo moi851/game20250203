@@ -27,3 +27,12 @@ canvas {
     margin: 5px;
     touch-action: manipulation;
 }
+
+/* 게임 시작 버튼 스타일 */
+#btnStart {
+    width: 200px;
+    height: 60px;
+    font-size: 24px;
+    margin: 10px auto;
+    display: block;
+}
